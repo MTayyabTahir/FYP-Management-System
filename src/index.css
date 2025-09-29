@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Titillium+Web:wght@300;400;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #EAFAEA;
+  --color-maroon: #780C28;
+  --color-saga: #CAE0BC;
+  --color-light-green: #6E8E59;
+
+  /* Correct font vars */
+  --font-inter: "Inter", sans-serif;
+  --font-titillium: "Titillium Web", sans-serif;
+}
+
+body {
+  font-family: var(--font-inter);
+}
