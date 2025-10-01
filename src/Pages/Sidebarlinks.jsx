@@ -64,8 +64,36 @@ export const studentLinks = [
   },
 ];
 
+<<<<<<< HEAD
 // export const teacherAdminLinks = [
 //   { path: "/", label: "Dashboard", icon: <Home size={18} /> },
 //   { path: "/my-students", label: "My Students", icon: <Users size={18} /> },
 //   { path: "/my-projects", label: "My Projects", icon: <FileText size={18} /> },
 // ];
+=======
+export const Supervisor = [
+  {
+    path: "/supervisor/dashboard",
+    label: "Dashboard",
+    icon: <Home size={18} />,
+  },
+  {
+    path: "/supervisor/assignments",
+    label: "Assignments",
+    icon: <Users size={18} />,
+  },
+  { path: "/supervisor/groups", label: "Groups", icon: <FileText size={18} /> },
+  {
+    path: "/supervisor/evaluator-result",
+    label: "Evaluator Results",
+    icon: <FileText size={18} />,
+  },
+
+  {
+    path: "/supervisor/add-annnoucements",
+    label: "Annoucements",
+    icon: <FileText size={18} />,
+  },
+  ,
+];
+>>>>>>> fyp

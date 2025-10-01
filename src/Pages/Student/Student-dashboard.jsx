@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { Bell, ClipboardList, User, FileText, X } from "lucide-react";
+=======
+import { Bell, ClipboardList, User, FileText } from "lucide-react";
+>>>>>>> fyp
 import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -40,22 +44,29 @@ export default function StudentDashboard() {
       from: "Coordinator",
       date: "2025-09-18",
       time: "10:00 AM",
+<<<<<<< HEAD
       details:
         "All groups are required to prepare for mid evaluation. Ensure reports are submitted before 22nd Sept. The evaluation will be conducted in Room #302, CS Block.",
+=======
+>>>>>>> fyp
     },
     {
       msg: "Submit Design Document before 20th Sept.",
       from: "Supervisor",
       date: "2025-09-15",
       time: "02:30 PM",
+<<<<<<< HEAD
       details:
         "Students must submit their design documents on the portal. Delays may lead to mark deduction. Ensure UML diagrams are properly included.",
+=======
+>>>>>>> fyp
     },
     {
       msg: "Final Presentation rehearsal on 5th Oct.",
       from: "Coordinator",
       date: "2025-09-12",
       time: "11:15 AM",
+<<<<<<< HEAD
       details:
         "All groups will perform a rehearsal of their final presentation in Auditorium Hall. Attendance is mandatory. Please bring presentation slides.",
     },
@@ -64,6 +75,11 @@ export default function StudentDashboard() {
   // Popup state
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
+=======
+    },
+  ];
+
+>>>>>>> fyp
   // Charts
   const marksData = {
     labels: ["Mid 1", "Mid 2", "Final 1", "Final 2"],
@@ -89,7 +105,11 @@ export default function StudentDashboard() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="p-6 md:ml-64 pt-8 min-h-screen bg-green-50">
+=======
+    <div className="p-6 md:ml-64 pt-8 min-h-screen">
+>>>>>>> fyp
       {/* Header */}
       <h1 className="text-3xl font-bold text-green-800 mb-6">
         Student Dashboard
@@ -104,8 +124,12 @@ export default function StudentDashboard() {
           {announcements.map((a, i) => (
             <li
               key={i}
+<<<<<<< HEAD
               className="border-b pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between cursor-pointer hover:bg-green-50 p-2 rounded"
               onClick={() => setSelectedAnnouncement(a)}
+=======
+              className="border-b pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between"
+>>>>>>> fyp
             >
               <div>
                 <p>{a.msg}</p>
@@ -156,6 +180,7 @@ export default function StudentDashboard() {
           <h2 className="text-lg font-semibold flex items-center gap-2 text-green-700 mb-4">
             <User size={18} /> Supervisor Info
           </h2>
+<<<<<<< HEAD
           <div className="p-4 bg-green-50 rounded-lg shadow-sm mb-4">
             <p className="text-sm text-gray-700">
               <strong>Supervisor:</strong> Dr. Ahsan Arshad <br />
@@ -171,6 +196,19 @@ export default function StudentDashboard() {
               <strong>Title:</strong> Intelligent Sarcasm Detection using NLP
             </p>
           </div>
+=======
+          <p className="text-sm text-gray-700 mb-3">
+            <strong>Supervisor:</strong> Dr. Ahsan Arshad <br />
+            <strong>Email:</strong> ahsan.arshad@uaar.edu.pk <br />
+            <strong>Research:</strong> Agile, Blockchain, SRE <br />
+          </p>
+          <h2 className="text-lg font-semibold flex items-center gap-2 text-green-700 mb-2">
+            <FileText size={18} /> Project
+          </h2>
+          <p className="text-sm text-gray-700">
+            <strong>Title:</strong> Intelligent Sarcasm Detection using NLP
+          </p>
+>>>>>>> fyp
         </div>
       </div>
 
@@ -192,6 +230,7 @@ export default function StudentDashboard() {
           <Line data={progressData} />
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Popup Modal */}
       {selectedAnnouncement && (
@@ -217,6 +256,8 @@ export default function StudentDashboard() {
           </div>
         </div>
       )}
+=======
+>>>>>>> fyp
     </div>
   );
 }

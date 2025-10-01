@@ -1,12 +1,22 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Mail, Phone, MapPin, Users, Download, Plus, Minus } from "lucide-react";
+=======
+import { useParams } from "react-router-dom";
+import { Mail, Phone, MapPin, Users, Download } from "lucide-react";
+>>>>>>> fyp
 import * as XLSX from "xlsx";
 
 export default function SupervisorProfile() {
   const { id } = useParams();
 
+<<<<<<< HEAD
   const [supervisor, setSupervisor] = useState({
+=======
+  // Hardcoded Supervisor Data
+  const supervisor = {
+>>>>>>> fyp
     id: id,
     image: "https://picsum.photos/200/300",
     name: "Mr. Muhammad Ahsan Arshad",
@@ -18,38 +28,63 @@ export default function SupervisorProfile() {
     address: "UIIT, PMAS-Arid Agriculture University, Rawalpindi",
     slots: 5,
     remainingSlots: 2,
+<<<<<<< HEAD
   });
 
+=======
+  };
+
+  // Grouped Students
+>>>>>>> fyp
   const groups = [
     {
       group: "A",
       project: "AI-Based Chatbot for Universities",
       members: [
+<<<<<<< HEAD
         { aridNo: "21-ARID-1234", name: "Ahmad Sajjad", marks: 92, grade: "A+" },
         { aridNo: "21-ARID-5678", name: "Tayyab Tahir", marks: 85, grade: "A" },
         { aridNo: "21-ARID-9101", name: "Haseeb Ahmad", marks: 78, grade: "B+" },
+=======
+        { aridNo: "21-ARID-1234", name: "Ahmad Sajjad" },
+        { aridNo: "21-ARID-5678", name: "Tayyab Tahir" },
+        { aridNo: "21-ARID-9101", name: "Haseeb Ahmad" },
+>>>>>>> fyp
       ],
     },
     {
       group: "B",
       project: "E-commerce Platform with AI Recommendations",
       members: [
+<<<<<<< HEAD
         { aridNo: "21-ARID-2234", name: "Ali Raza", marks: 88, grade: "A" },
         { aridNo: "21-ARID-2678", name: "Bilal Khan", marks: 73, grade: "B" },
         { aridNo: "21-ARID-2101", name: "Hamza Yousaf", marks: 95, grade: "A+" },
+=======
+        { aridNo: "21-ARID-2234", name: "Ali Raza" },
+        { aridNo: "21-ARID-2678", name: "Bilal Khan" },
+        { aridNo: "21-ARID-2101", name: "Hamza Yousaf" },
+>>>>>>> fyp
       ],
     },
     {
       group: "C",
       project: "Machine Learning Model for Agriculture",
       members: [
+<<<<<<< HEAD
         { aridNo: "21-ARID-3234", name: "Abdul Rehman", marks: 80, grade: "B+" },
         { aridNo: "21-ARID-3678", name: "Usman Tariq", marks: 90, grade: "A+" },
         { aridNo: "21-ARID-3101", name: "Nouman Ahmed", marks: 70, grade: "B" },
+=======
+        { aridNo: "21-ARID-3234", name: "Abdul Rehman" },
+        { aridNo: "21-ARID-3678", name: "Usman Tariq" },
+        { aridNo: "21-ARID-3101", name: "Nouman Ahmed" },
+>>>>>>> fyp
       ],
     },
   ];
 
+<<<<<<< HEAD
   // Add/Remove Slots
   const addSlot = () => {
     setSupervisor(prev => ({
@@ -83,26 +118,62 @@ export default function SupervisorProfile() {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Students");
     XLSX.writeFile(wb, "Students_Details.xlsx");
+=======
+  // Excel Download Function
+  const downloadExcel = () => {
+    const data = groups.flatMap((g) =>
+      g.members.map((m) => ({
+        Group: g.group,
+        Project: g.project,
+        AridNo: m.aridNo,
+        Name: m.name,
+      }))
+    );
+
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
+    XLSX.writeFile(workbook, "Supervisor_Students.xlsx");
+>>>>>>> fyp
   };
 
   return (
     <div className="p-6 md:ml-64 pt-20 md:pt-6 space-y-6">
       {/* Profile Card */}
+<<<<<<< HEAD
       <div className="bg-green-50 rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-start md:items-center gap-6 border border-green-200">
+=======
+      <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-start md:items-center gap-6 border border-gray-200">
+>>>>>>> fyp
         <img
           src={supervisor.image}
           alt={supervisor.name}
           className="h-32 w-32 rounded-full object-cover border-4 border-green-600 shadow"
         />
+<<<<<<< HEAD
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-green-800">{supervisor.name}</h2>
           <p className="text-green-600 font-medium">{supervisor.designation}</p>
           <p className="text-sm text-green-700 mt-1">
+=======
+
+        <div className="flex-1">
+          <h2 className="text-2xl font-bold text-gray-800">
+            {supervisor.name}
+          </h2>
+          <p className="text-green-600 font-medium">{supervisor.designation}</p>
+          <p className="text-sm text-gray-600 mt-1">
+>>>>>>> fyp
             Specialization: {supervisor.specialization}
           </p>
           <p className="text-gray-700 mt-3 leading-relaxed">{supervisor.bio}</p>
 
+<<<<<<< HEAD
           <div className="grid sm:grid-cols-2 gap-4 mt-4 text-gray-700 text-sm">
+=======
+          {/* Contact */}
+          <div className="grid sm:grid-cols-2 gap-4 mt-4 text-sm text-gray-700">
+>>>>>>> fyp
             <p className="flex items-center gap-2">
               <Phone size={16} className="text-green-600" /> {supervisor.phone}
             </p>
@@ -110,6 +181,7 @@ export default function SupervisorProfile() {
               <Mail size={16} className="text-green-600" /> {supervisor.email}
             </p>
             <p className="flex items-center gap-2 col-span-2">
+<<<<<<< HEAD
               <MapPin size={16} className="text-green-600" /> {supervisor.address}
             </p>
           </div>
@@ -123,6 +195,17 @@ export default function SupervisorProfile() {
               <button onClick={removeSlot} className="p-1 bg-red-600 rounded-full text-white hover:bg-red-700">
                 <Minus size={14} />
               </button>
+=======
+              <MapPin size={16} className="text-green-600" />{" "}
+              {supervisor.address}
+            </p>
+          </div>
+
+          {/* Slots */}
+          <div className="flex gap-6 mt-5">
+            <div className="bg-green-100 text-green-700 px-4 py-2 rounded-lg shadow text-sm font-semibold">
+              Total Slots: {supervisor.slots}
+>>>>>>> fyp
             </div>
             <div className="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg shadow text-sm font-semibold">
               Remaining: {supervisor.remainingSlots}
@@ -132,9 +215,15 @@ export default function SupervisorProfile() {
       </div>
 
       {/* Students Section */}
+<<<<<<< HEAD
       <div className="bg-white rounded-2xl shadow-lg border border-green-200 p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-semibold text-green-800 flex items-center gap-2">
+=======
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+>>>>>>> fyp
             <Users size={20} className="text-green-600" /> Supervised Groups
           </h3>
           <button
@@ -145,32 +234,56 @@ export default function SupervisorProfile() {
           </button>
         </div>
 
+<<<<<<< HEAD
         <div className="space-y-6">
           {groups.map((g, idx) => (
             <div key={idx} className="border rounded-xl overflow-hidden shadow-sm">
+=======
+        {/* Grouped Students */}
+        <div className="space-y-6">
+          {groups.map((g, idx) => (
+            <div
+              key={idx}
+              className="border rounded-xl overflow-hidden shadow-sm"
+            >
+>>>>>>> fyp
               <div className="bg-green-600 text-white px-4 py-2 font-semibold flex justify-between">
                 <span>Group {g.group}</span>
                 <span>Project: {g.project}</span>
               </div>
               <table className="w-full border-collapse text-sm">
+<<<<<<< HEAD
                 <thead className="bg-green-100">
                   <tr>
                     <th className="px-4 py-2 text-left">ARID No</th>
                     <th className="px-4 py-2 text-left">Name</th>
                     <th className="px-4 py-2 text-left">Marks</th>
                     <th className="px-4 py-2 text-left">Grade</th>
+=======
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-4 py-2 text-left">Arid No</th>
+                    <th className="px-4 py-2 text-left">Name</th>
+>>>>>>> fyp
                   </tr>
                 </thead>
                 <tbody>
                   {g.members.map((m, i) => (
                     <tr
                       key={i}
+<<<<<<< HEAD
                       className="odd:bg-white even:bg-green-50 hover:bg-green-100 transition"
                     >
                       <td className="px-4 py-2 border">{m.aridNo}</td>
                       <td className="px-4 py-2 border">{m.name}</td>
                       <td className="px-4 py-2 border">{m.marks}</td>
                       <td className="px-4 py-2 border">{m.grade}</td>
+=======
+                      className="odd:bg-white even:bg-gray-50 hover:bg-green-50 transition"
+                    >
+                      <td className="px-4 py-2 border">{m.aridNo}</td>
+                      <td className="px-4 py-2 border">{m.name}</td>
+>>>>>>> fyp
                     </tr>
                   ))}
                 </tbody>
