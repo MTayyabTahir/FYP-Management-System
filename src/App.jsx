@@ -7,7 +7,11 @@ import {
 } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
-import { superAdminLinks, studentLinks } from "./Pages/Sidebarlinks";
+import {
+  superAdminLinks,
+  studentLinks,
+  Supervisor,
+} from "./Pages/Sidebarlinks";
 
 import Dashboard from "./Pages/Codinator/Dahboard";
 import SupervisorList from "./Pages/Codinator/Supervisorlist";
@@ -25,6 +29,11 @@ import StudentSupervisors from "./Pages/Student/Student_supervisor";
 import SupervisorProfileWithPlagiarism from "./Pages/Student/Supervisor_profile";
 import StudentResult from "./Pages/Student/Student-result";
 import StudentGroupmates from "./Pages/Student/Student-group";
+import SupervisorDashboard from "./Pages/Supervisors/Dashboard";
+import SupervisorAssignments from "./Pages/Supervisors/Assignmensts";
+import StudentGroups from "./Pages/Supervisors/Groups";
+import SupervisorAnnouncements from "./Pages/Supervisors/Addannoucements";
+import SupervisorEvaluator from "./Pages/Supervisors/Evealuator-results";
 
 function Layout() {
   const location = useLocation();
@@ -45,6 +54,7 @@ function Layout() {
   let links = [];
   if (role === "super-admin") links = superAdminLinks;
   else if (role === "student") links = studentLinks;
+  else if (role === "supervisor") links = Supervisor;
 
   return (
     <div className="flex min-h-screen">
@@ -100,6 +110,27 @@ function Layout() {
                 <Route
                   path="/student/my_group"
                   element={<StudentGroupmates />}
+                />
+              </>
+            )}
+            {role === "supervisor" && (
+              <>
+                <Route
+                  path="/supervisor/dashboard"
+                  element={<SupervisorDashboard />}
+                />
+                <Route
+                  path="/supervisor/assignments"
+                  element={<SupervisorAssignments />}
+                />
+                <Route path="/supervisor/groups" element={<StudentGroups />} />
+                <Route
+                  path="/supervisor/add-annnoucements"
+                  element={<SupervisorAnnouncements />}
+                />
+                <Route
+                  path="/supervisor/evaluator-result"
+                  element={<SupervisorEvaluator />}
                 />
               </>
             )}
